@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-Simple vim and other configurations.
+My Vim and tmux configurations.
