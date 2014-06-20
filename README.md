@@ -6,8 +6,12 @@ Install neovim:
 
 ```
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
+
+$ git clone https://github.com/wallacyyy/dotfiles ~
+
 $ nvim
-$ :PluginInstall
+
+:PluginInstall
 
 You are done.
 ```
