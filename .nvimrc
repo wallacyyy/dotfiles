@@ -1,12 +1,8 @@
 set nocompatible
 filetype off
-call pathogen#infect('~/.nvim/bundle')
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 colorscheme Tomorrow-Night
 syntax enable
 filetype plugin on
-filetype indent plugin on
 filetype indent on
 set expandtab
 set ts=2
@@ -28,13 +24,26 @@ set ttyscroll=3
 set lazyredraw
 let ruby_no_expensive = 1
 set timeout ttimeoutlen=50
-Bundle 'christoomey/vim-tmux-navigator'
+
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin('~/.nvim/bundle')
+
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'Lokaltog/powerline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-scripts/grep.vim'
+
+call vundle#end()
+filetype plugin indent on
 
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
 autocmd Filetype js setlocal et ts=4 sw=4 tw=0
 autocmd Filetype css setlocal et ts=4 sw=4 tw=0
 autocmd Filetype go setlocal ts=8 sw=8 tw=0
-
 
 set wildignore+=tags,*/tmp/*,*.so,*.swp,*.zip,*/spec/vcr/*,*/vendor/*,*/log/*,*/\.git/*,*/script/*,*/bin/*,*/coverage/*,*/db/seeds.rb
 
@@ -59,7 +68,6 @@ map <leader>cc <C-/>
 map ff <C-w>w
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
-
 
 let c='a'
 while c <= 'z' && c <= '10'
