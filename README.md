@@ -9,12 +9,11 @@ Install tmux:
 
 ```
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
-
-$ git clone https://github.com/wallacyyy/dotfiles ~
-
+$ cd ~
+$ git init
+$ git add remote https://github.com/wallacyyy/dotfiles
+$ git pull origin master
 $ nvim
 
 :PluginInstall
-
-You are done.
 ```
