@@ -52,10 +52,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-map <S-t> gT
-map <S-g> gt
 map Esc <C-c>
-map <C-n> :NERDTreeTabsToggle<CR>
+map <S-g> :NERDTreeTabsToggle<CR>
 map <leader>cc <C-/>
 map ff <C-w>w
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
