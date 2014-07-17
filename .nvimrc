@@ -37,9 +37,13 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()
 filetype plugin indent on
+
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
 
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
 autocmd Filetype js setlocal et ts=4 sw=4 tw=0
