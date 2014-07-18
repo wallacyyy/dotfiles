@@ -1,0 +1,32 @@
+AllCops:
+  RunRailsCops: true
+
+Style/Blocks:
+  Enabled: false
+
+Style/ClassLength:
+  Max: 300
+
+Style/Documentation:
+  Enabled: false
+
+Style/LineLength:
+  Max: 100
+
+Style/NegatedWhile:
+  Enabled: false
+
+Style/NonNilCheck:
+  IncludeSemanticChanges: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: true
+
+Style/NegatedIf:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false

@@ -44,6 +44,7 @@ filetype plugin indent on
 
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
+let g:vimrubocop_config = '~/rubocop.yml'
 
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
 autocmd Filetype js setlocal et ts=4 sw=4 tw=0
