@@ -1,9 +1,7 @@
 set nocompatible
+syntax enable
 filetype off
 colorscheme Tomorrow-Night
-syntax enable
-filetype plugin on
-filetype indent on
 set expandtab
 set ts=2
 set sw=2
@@ -27,19 +25,18 @@ set timeout ttimeoutlen=50
 
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
-
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-scripts/grep.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'ngmy/vim-rubocop'
-
+  Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'tpope/vim-surround'
+  Plugin 'Lokaltog/vim-powerline'
+  Plugin 'kien/ctrlp.vim'
+  Plugin 'jistr/vim-nerdtree-tabs'
+  Plugin 'vim-scripts/grep.vim'
+  Bundle 'kchmck/vim-coffee-script'
+  Plugin 'ngmy/vim-rubocop'
 call vundle#end()
+
 filetype plugin indent on
 
 let g:vimrubocop_keymap = 0
@@ -72,10 +69,3 @@ while c <= 'z' && c <= '10'
   let c = nr2char(1+char2nr(c))
 endw
 
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
