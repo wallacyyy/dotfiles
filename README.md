@@ -13,8 +13,17 @@ $ cd ~
 $ git init
 $ git remote add origin git@github.com:wallacyyy/dotfiles.git
 $ git pull origin master
-$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+$ git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
 $ nvim
 
-:PluginInstall
+:BundleInstall
+```
+
+For Linux install ( Gnome terminal )
+------------------------------------
+
+Add the following to .bashrc:
+
+```
+export TERM=xterm-256color
 ```
