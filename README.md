@@ -11,8 +11,9 @@ Install tmux:
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
 $ cd ~
 $ git init
-$ git add remote origin git@github.com:wallacyyy/dotfiles.git
+$ git remote add origin git@github.com:wallacyyy/dotfiles.git
 $ git pull origin master
+$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 $ nvim
 
 :PluginInstall
