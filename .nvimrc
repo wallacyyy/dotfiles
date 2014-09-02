@@ -22,6 +22,7 @@ set ttyscroll=3
 set lazyredraw
 let ruby_no_expensive = 1
 set timeout ttimeoutlen=50
+let g:mustache_abbreviations = 1
 
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
@@ -35,6 +36,7 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'vim-scripts/grep.vim'
   Bundle 'kchmck/vim-coffee-script'
   Plugin 'ngmy/vim-rubocop'
+  Bundle 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
 filetype plugin indent on
@@ -44,6 +46,7 @@ nmap <Leader>r :RuboCop<CR>
 let g:vimrubocop_config = '~/rubocop.yml'
 
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
+autocmd Filetype python setlocal et ts=4 sw=4 tw=0
 autocmd Filetype js setlocal et ts=4 sw=4 tw=0
 autocmd Filetype css setlocal et ts=4 sw=4 tw=0
 autocmd Filetype go setlocal ts=8 sw=8 tw=0
