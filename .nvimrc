@@ -8,7 +8,7 @@ set sw=2
 set tw=0
 set re=1
 set encoding=utf-8
-set guifont=Monaco\ 11.2
+set guifont=Monaco\ 14
 set t_Co=256
 set mouse=a                   
 set wildmenu                  
@@ -20,6 +20,7 @@ set synmaxcol=120
 set ttyfast
 set ttyscroll=3
 set lazyredraw
+set tags=tags;/
 let ruby_no_expensive = 1
 set timeout ttimeoutlen=50
 let g:mustache_abbreviations = 1
@@ -35,7 +36,9 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'vim-scripts/grep.vim'
   Bundle 'kchmck/vim-coffee-script'
+  Plugin 'majutsushi/tagbar'
   Plugin 'ngmy/vim-rubocop'
+  Plugin 'derekwyatt/vim-scala'
   Bundle 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
@@ -60,6 +63,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 map Esc <C-c>
 map <S-g> :NERDTreeTabsToggle<CR>
+nmap <S-t> :TagbarToggle<CR>
 map <leader>cc <C-/>
 map ff <C-w>w
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
