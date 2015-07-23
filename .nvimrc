@@ -1,29 +1,25 @@
 set nocompatible
+set background=dark
 syntax enable
-filetype off
-colorscheme Tomorrow-Night
 set expandtab
-set ts=2
-set sw=2
-set tw=0
-set re=1
+set regexpengine=1
 set encoding=utf-8
 set guifont=Monaco\ 14
 set t_Co=256
-set mouse=a                   
-set wildmenu                  
+set mouse=a
+set wildmenu
 set noswapfile
 set number
 set incsearch
 set laststatus=2
 set synmaxcol=120
 set ttyfast
-set ttyscroll=3
 set lazyredraw
 set tags=tags;/
 let ruby_no_expensive = 1
 set timeout ttimeoutlen=50
 let g:mustache_abbreviations = 1
+set fillchars+=vert:\ 
 
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
@@ -40,17 +36,26 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'ngmy/vim-rubocop'
   Plugin 'derekwyatt/vim-scala'
   Bundle 'mustache/vim-mustache-handlebars'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'othree/javascript-libraries-syntax.vim'
+  Plugin 'wallacyyy/mango.vim'
 call vundle#end()
 
-filetype plugin indent on
+colorscheme mango
+" just because NerdTree set it globally
+hi vertsplit ctermfg=240 ctermbg=240
+hi nontext ctermfg=232
 
+let g:used_javascript_libs = 'react, flux'
+filetype plugin indent on
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
 let g:vimrubocop_config = '~/rubocop.yml'
 
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
 autocmd Filetype python setlocal et ts=4 sw=4 tw=0
-autocmd Filetype js setlocal et ts=4 sw=4 tw=0
+autocmd Filetype js setlocal et ts=2 sw=2 tw=0
+autocmd Filetype jsx setlocal et ts=2 sw=2 tw=0
 autocmd Filetype css setlocal et ts=4 sw=4 tw=0
 autocmd Filetype go setlocal ts=8 sw=8 tw=0
 
