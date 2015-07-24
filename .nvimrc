@@ -39,6 +39,7 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'pangloss/vim-javascript'
   Plugin 'othree/javascript-libraries-syntax.vim'
   Plugin 'wallacyyy/mango.vim'
+  Plugin 'cakebaker/scss-syntax.vim'
 call vundle#end()
 
 colorscheme mango
@@ -57,6 +58,7 @@ autocmd Filetype python setlocal et ts=4 sw=4 tw=0
 autocmd Filetype js setlocal et ts=2 sw=2 tw=0
 autocmd Filetype jsx setlocal et ts=2 sw=2 tw=0
 autocmd Filetype css setlocal et ts=4 sw=4 tw=0
+autocmd Filetype scss setlocal et ts=4 sw=4 tw=0
 autocmd Filetype go setlocal ts=8 sw=8 tw=0
 
 set wildignore+=tags,*/tmp/*,*.so,*.swp,*.zip,*/spec/vcr/*,*/vendor/*,*/log/*,*/\.git/*,*/script/*,*/bin/*,*/coverage/*,*/db/seeds.rb,*/node_modules/*,*/dist/*
