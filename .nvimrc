@@ -1,11 +1,15 @@
+set term=xterm-256color
 set nocompatible
+filetype off
 set background=dark
-syntax enable
 set expandtab
 set regexpengine=1
 set encoding=utf-8
 set guifont=Monaco\ 14
 set t_Co=256
+set ts=2
+set sw=2
+set tw=0
 set mouse=a
 set wildmenu
 set noswapfile
@@ -42,6 +46,9 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'cakebaker/scss-syntax.vim'
 call vundle#end()
 
+syntax enable
+filetype plugin indent on
+
 colorscheme mango
 " just because NerdTree set it globally
 hi vertsplit ctermfg=240 ctermbg=240
@@ -53,10 +60,10 @@ let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
 let g:vimrubocop_config = '~/rubocop.yml'
 
+autocmd Filetype coffee setlocal et ts=2 sw=2 tw=0
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
 autocmd Filetype python setlocal et ts=4 sw=4 tw=0
 autocmd Filetype js setlocal et ts=2 sw=2 tw=0
-autocmd Filetype jsx setlocal et ts=2 sw=2 tw=0
 autocmd Filetype css setlocal et ts=4 sw=4 tw=0
 autocmd Filetype scss setlocal et ts=4 sw=4 tw=0
 autocmd Filetype go setlocal ts=8 sw=8 tw=0
@@ -71,7 +78,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\|node_modules\|dist$'
 map Esc <C-c>
 map <S-g> :NERDTreeTabsToggle<CR>
 nmap <S-t> :TagbarToggle<CR>
-map <leader>cc <C-/>
 map ff <C-w>w
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
