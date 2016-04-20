@@ -45,6 +45,7 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'wallacyyy/mango.vim'
   Plugin 'cakebaker/scss-syntax.vim'
   Plugin 'scrooloose/syntastic'
+  Plugin 'Shougo/deoplete.nvim'
 call vundle#end()
 
 syntax enable
@@ -57,6 +58,7 @@ hi nontext ctermfg=232
 
 let g:syntastic_javascript_checkers = ['standard']
 let g:used_javascript_libs = 'react, flux'
+let g:deoplete#enable_at_startup = 1
 filetype plugin indent on
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
