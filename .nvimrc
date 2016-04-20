@@ -44,6 +44,7 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'othree/javascript-libraries-syntax.vim'
   Plugin 'wallacyyy/mango.vim'
   Plugin 'cakebaker/scss-syntax.vim'
+  Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 syntax enable
@@ -54,6 +55,7 @@ colorscheme mango
 hi vertsplit ctermfg=240 ctermbg=240
 hi nontext ctermfg=232
 
+let g:syntastic_javascript_checkers = ['standard']
 let g:used_javascript_libs = 'react, flux'
 filetype plugin indent on
 let g:vimrubocop_keymap = 0
