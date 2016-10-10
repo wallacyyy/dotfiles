@@ -1,10 +1,8 @@
-set term=xterm-256color
 set nocompatible
 filetype off
 set background=dark
 set expandtab
 set regexpengine=1
-set encoding=utf-8
 set guifont=Monaco\ 14
 set t_Co=256
 set ts=2
@@ -24,6 +22,7 @@ let ruby_no_expensive = 1
 set timeout ttimeoutlen=50
 let g:mustache_abbreviations = 1
 set fillchars+=vert:\ 
+set clipboard=unnamed
 
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
@@ -40,18 +39,21 @@ call vundle#begin('~/.nvim/bundle')
   Plugin 'ngmy/vim-rubocop'
   Plugin 'derekwyatt/vim-scala'
   Bundle 'mustache/vim-mustache-handlebars'
-  Plugin 'pangloss/vim-javascript'
   Plugin 'othree/javascript-libraries-syntax.vim'
   Plugin 'wallacyyy/mango.vim'
   Plugin 'cakebaker/scss-syntax.vim'
   Plugin 'scrooloose/syntastic'
   Plugin 'Shougo/deoplete.nvim'
+  Plugin 'othree/yajs.vim'
+  Plugin 'morhetz/gruvbox'
+  Plugin 'tpope/vim-repeat'
+  Plugin 'svermeulen/vim-easyclip'
 call vundle#end()
 
 syntax enable
 filetype plugin indent on
 
-colorscheme mango
+colorscheme gruvbox
 " just because NerdTree set it globally
 hi vertsplit ctermfg=240 ctermbg=240
 hi nontext ctermfg=232
@@ -68,8 +70,8 @@ autocmd Filetype coffee setlocal et ts=2 sw=2 tw=0
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
 autocmd Filetype python setlocal et ts=4 sw=4 tw=0
 autocmd Filetype js setlocal et ts=2 sw=2 tw=0
-autocmd Filetype css setlocal et ts=4 sw=4 tw=0
-autocmd Filetype scss setlocal et ts=4 sw=4 tw=0
+autocmd Filetype css setlocal et ts=2 sw=2 tw=0
+autocmd Filetype scss setlocal et ts=2 sw=2 tw=0
 autocmd Filetype go setlocal ts=8 sw=8 tw=0
 
 set wildignore+=tags,*/tmp/*,*.so,*.swp,*.zip,*/spec/vcr/*,*/vendor/*,*/log/*,*/\.git/*,*/script/*,*/bin/*,*/coverage/*,*/db/seeds.rb,*/node_modules/*,*/dist/*
@@ -92,4 +94,3 @@ while c <= 'z' && c <= '10'
   exec "imap \e".c." <A-".c.">"
   let c = nr2char(1+char2nr(c))
 endw
-
