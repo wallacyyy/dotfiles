@@ -37,29 +37,44 @@ call vundle#begin('~/.nvim/bundle')
   Bundle 'kchmck/vim-coffee-script'
   Plugin 'majutsushi/tagbar'
   Plugin 'ngmy/vim-rubocop'
-  Plugin 'derekwyatt/vim-scala'
   Bundle 'mustache/vim-mustache-handlebars'
   Plugin 'othree/javascript-libraries-syntax.vim'
   Plugin 'wallacyyy/mango.vim'
   Plugin 'cakebaker/scss-syntax.vim'
-  Plugin 'scrooloose/syntastic'
+  Plugin 'neomake/neomake'
+  Plugin 'tpope/vim-repeat'
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'othree/yajs.vim'
   Plugin 'morhetz/gruvbox'
-  Plugin 'tpope/vim-repeat'
   Plugin 'svermeulen/vim-easyclip'
 call vundle#end()
 
 syntax enable
 filetype plugin indent on
 
+" remove trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" run lint on open and write using eslint install through npm
+autocmd! BufWritePost * Neomake
+let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_verbose = 0
+let g:neomake_warning_sign = {
+  \ 'text': 'W',
+  \ 'texthl': 'WarningMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': 'E',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+
 colorscheme gruvbox
 " just because NerdTree set it globally
 hi vertsplit ctermfg=240 ctermbg=240
 hi nontext ctermfg=232
 
-let g:syntastic_javascript_checkers = ['standard']
-let g:used_javascript_libs = 'react, flux'
+let g:used_javascript_libs = 'react, redux'
 let g:deoplete#enable_at_startup = 1
 filetype plugin indent on
 let g:vimrubocop_keymap = 0
@@ -72,7 +87,6 @@ autocmd Filetype python setlocal et ts=4 sw=4 tw=0
 autocmd Filetype js setlocal et ts=2 sw=2 tw=0
 autocmd Filetype css setlocal et ts=2 sw=2 tw=0
 autocmd Filetype scss setlocal et ts=2 sw=2 tw=0
-autocmd Filetype go setlocal ts=8 sw=8 tw=0
 
 set wildignore+=tags,*/tmp/*,*.so,*.swp,*.zip,*/spec/vcr/*,*/vendor/*,*/log/*,*/\.git/*,*/script/*,*/bin/*,*/coverage/*,*/db/seeds.rb,*/node_modules/*,*/dist/*
 
