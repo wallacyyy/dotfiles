@@ -14,16 +14,7 @@ $ git init
 $ git remote add origin git@github.com:wallacyyy/dotfiles.git
 $ git pull origin master
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
-$ nvim
+$ brew install reattach-to-user-namespace
 
-:BundleInstall
-```
-
-For Linux install ( Gnome terminal )
-------------------------------------
-
-Add the following to .bashrc:
-
-```
-export TERM=xterm-256color
+:PluginInstall
 ```
