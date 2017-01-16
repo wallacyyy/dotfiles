@@ -19,6 +19,7 @@ let ruby_no_expensive = 1
 set timeout ttimeoutlen=50
 let g:mustache_abbreviations = 1
 set fillchars+=vert:\
+set expandtab
 
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
@@ -73,10 +74,9 @@ let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
 let g:vimrubocop_config = '~/rubocop.yml'
 
+autocmd Filetype javascript setlocal et ts=2 sw=2 tw=0
 autocmd Filetype coffee setlocal et ts=2 sw=2 tw=0
 autocmd Filetype ruby setlocal et ts=2 sw=2 tw=0
-autocmd Filetype python setlocal et ts=4 sw=4 tw=0
-autocmd Filetype js setlocal et ts=2 sw=2 tw=0
 autocmd Filetype css setlocal et ts=2 sw=2 tw=0
 autocmd Filetype scss setlocal et ts=2 sw=2 tw=0
 autocmd Filetype html setlocal et ts=2 sw=2 tw=0
