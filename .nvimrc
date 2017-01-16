@@ -24,7 +24,7 @@ set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-surround'
   Plugin 'Lokaltog/vim-powerline'
   Plugin 'kien/ctrlp.vim'
