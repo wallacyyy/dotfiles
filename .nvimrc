@@ -1,7 +1,6 @@
 set nocompatible
 filetype off
 set background=dark
-set guifont=Monaco\ 14
 set regexpengine=1
 set t_Co=256
 set ts=2
@@ -20,26 +19,29 @@ set timeout ttimeoutlen=50
 let g:mustache_abbreviations = 1
 set fillchars+=vert:\
 set expandtab
+set clipboard=unnamed
 
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin('~/.nvim/bundle')
   Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'scrooloose/nerdtree'
+  Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-surround'
   Plugin 'Lokaltog/vim-powerline'
   Plugin 'kien/ctrlp.vim'
   Plugin 'vim-scripts/grep.vim'
-  Bundle 'kchmck/vim-coffee-script'
   Plugin 'ngmy/vim-rubocop'
-  Bundle 'mustache/vim-mustache-handlebars'
-  Plugin 'othree/javascript-libraries-syntax.vim'
   Plugin 'cakebaker/scss-syntax.vim'
   Plugin 'neomake/neomake'
   Plugin 'tpope/vim-repeat'
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'othree/yajs.vim'
+  Plugin 'othree/javascript-libraries-syntax.vim'
+  Plugin 'othree/es.next.syntax.vim'
   Plugin 'morhetz/gruvbox'
+  Plugin 'mileszs/ack.vim'
+  Plugin 'vim-scripts/nerdtree-ack'
 call vundle#end()
 
 syntax enable
@@ -50,16 +52,16 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " run lint on open and write using eslint install through npm
 autocmd! BufWritePost * Neomake
-let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
+autocmd! BufReadPost * Neomake
+
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_verbose = 0
 let g:neomake_warning_sign = {
-  \ 'text': 'W',
-  \ 'texthl': 'WarningMsg',
+  \ 'text': '⚠️',
   \ }
 let g:neomake_error_sign = {
-  \ 'text': 'E',
-  \ 'texthl': 'ErrorMsg',
+  \ 'text': '❌',
   \ }
 
 colorscheme gruvbox
@@ -90,8 +92,10 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\|node_modules\|dist$'
 
 vnoremap <C-c> "+y
 vnoremap <C-v> "+p
-map <S-g> :NERDTreeToggle<CR>
+map <S-g> :NERDTreeMirrorToggle<CR>
 map ff <C-w>w
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let c='a'
 while c <= 'z' && c <= '10'
